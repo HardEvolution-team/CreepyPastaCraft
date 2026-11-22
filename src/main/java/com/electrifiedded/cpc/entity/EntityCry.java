@@ -1,0 +1,52 @@
+package com.electrifiedded.cpc.entity;
+
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.*;
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.world.World;
+
+public class EntityCry extends EntityAnimal {
+    public EntityCry(World world) {
+        super(world);
+        setSize(0.6F, 1.8F);
+        isImmuneToFire = true;
+    }
+
+    @Override
+    protected void initEntityAI() {
+        tasks.addTask(0, new EntityAISwimming(this));
+        tasks.addTask(1, new EntityAIAvoidEntity<>(this, EntityMob.class, 8.0F, 0.6, 0.6));
+        tasks.addTask(1, new EntityAIPanic(this, 1.0));
+        tasks.addTask(2, new EntityAIOpenDoor(this, true));
+        tasks.addTask(4, new EntityAIMoveTowardsRestriction(this, 0.5));
+        tasks.addTask(6, new EntityAIWander(this, 0.6));
+        tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+        tasks.addTask(8, new EntityAILookIdle(this));
+    }
+
+    @Override
+    protected void applyEntityAttributes() {
+        super.applyEntityAttributes();
+        getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.5);
+    }
+
+    @Override
+    protected Item getDropItem() {
+        return Items.GHAST_TEAR;
+    }
+
+    @Override
+    protected boolean canDespawn() {
+        return true;
+    }
+
+    @Override
+    public EntityAgeable createChild(EntityAgeable other) {
+        return null;
+    }
+}

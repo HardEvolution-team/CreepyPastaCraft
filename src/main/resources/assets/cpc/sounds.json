@@ -1,0 +1,8 @@
+{
+  "mob.pewds.death": {"category": "neutral", "sounds": ["cpc:mob/pewds/death1", "cpc:mob/pewds/death2"]},
+  "mob.pewds.hurt": {"category": "neutral", "sounds": ["cpc:mob/pewds/hurt1", "cpc:mob/pewds/hurt2"]},
+  "mob.pewds.say": {"category": "neutral", "sounds": ["cpc:mob/pewds/say1", "cpc:mob/pewds/say2", "cpc:mob/pewds/say3"]},
+  "mob.pewds.scare": {"category": "neutral", "sounds": ["cpc:mob/pewds/scare"]},
+  "mob.jeff.kill": {"category": "hostile", "sounds": ["cpc:mob/jeff/kill1"]},
+  "records.lavender": {"category": "record", "sounds": [{"name": "cpc:records/lavender", "stream": true}]}
+}
