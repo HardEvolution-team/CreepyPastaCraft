@@ -27,7 +27,7 @@ public class TileEntityLaptop extends TileEntity implements IInventory, ITickabl
 
     public static ItemStack printingResult(ItemStack in) {
         if (in.getItem() != Items.PAPER) return ItemStack.EMPTY;
-        java.util.Random r = new java.util.Random();
+        java.util.Random r = new com.electrifiedded.archaiclib.util.FastRandom();
         if (r.nextInt(100) < 5) return new ItemStack(CPC.smileJpg);
         return new ItemStack(CPC.archive, 1, r.nextInt(CPC.PASTA_NAMES.size()));
     }
